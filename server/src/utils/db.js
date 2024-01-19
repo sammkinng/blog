@@ -2,7 +2,10 @@ const { Pool } = require('pg');
 const config=require('../../config/config')
 
 const pool = new Pool({
-    connectionString:config.database.url
+    connectionString:config.database.url,
+    ssl: {
+      rejectUnauthorized: false, // You may need to set this to false for self-signed certificates
+    },
 });
 
 
